@@ -1,1 +1,1 @@
-![pathProgram](pathProgram.svg)
+![pathProgram](pathProgram.png)

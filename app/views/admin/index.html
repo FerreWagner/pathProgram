@@ -5,16 +5,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <!-- Bootstrap Styles-->
-    <link href="http://<?php echo base_url()?>/static/assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- FontAwesome Styles-->
-    <link href="http://<?php echo base_url()?>/static/assets/css/font-awesome.css" rel="stylesheet" />
-    <!-- Morris Chart Styles-->
-    <link href="http://<?php echo base_url()?>/static/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
-    <!-- Custom Styles-->
-    <link href="http://<?php echo base_url()?>/static/assets/css/custom-styles.css" rel="stylesheet" />
-    <!-- Google Fonts-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+	
+	<?php $this->load->view('admin/public_css.html');?>
+	
 </head>
 
 <body>
@@ -313,13 +306,8 @@
     </div>
     <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
-    <!-- jQuery Js -->
-    <script src="http://<?php echo base_url()?>/static/assets/js/jquery-1.10.2.js"></script>
-    <!-- Bootstrap Js -->
-    <script src="http://<?php echo base_url()?>/static/assets/js/bootstrap.min.js"></script>
-	 
-    <!-- Metis Menu Js -->
-    <script src="http://<?php echo base_url()?>/static/assets/js/jquery.metisMenu.js"></script>
+   	<?php $this->load->view('admin/public_js.html');?>
+
     <!-- Morris Chart Js -->
     <script src="http://<?php echo base_url()?>/static/assets/js/morris/raphael-2.1.0.min.js"></script>
     <script src="http://<?php echo base_url()?>/static/assets/js/morris/morris.js"></script>
@@ -329,8 +317,10 @@
 	<script src="http://<?php echo base_url()?>/static/assets/js/easypiechart-data.js"></script>
 	
 	
-    <!-- Custom Js -->
-    <script src="http://<?php echo base_url()?>/static/assets/js/custom-scripts.js"></script>
+
+	
+	
+
 
 
 </body>

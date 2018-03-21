@@ -22,10 +22,43 @@ class Admin extends CI_Controller {
     {
         parent::__construct();
         $this->load->helper('url');
+        
+        //加载公共主题
+        
     }
     
 	public function index()
 	{
 		$this->load->view('admin/index.html');
+	}
+	
+	public function elements()
+	{
+	    $this->load->view('admin/elements.html');
+	}
+	
+	public function charts()
+	{
+	    $this->load->view('admin/chart.html');
+	}
+	
+	public function tabs()
+	{
+	    $this->load->view('admin/tabs.html');
+	}
+	
+	public function table()
+	{
+	    $this->load->view('admin/table.html');
+	}
+	
+	public function form()
+	{
+	    $this->load->view('admin/form.html');
+	}
+	
+	public function empti()
+	{
+	    $this->load->view('admin/empti.html');
 	}
 }

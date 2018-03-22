@@ -32,13 +32,19 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/index.html');
 	}
 	
+	/**
+	 * 项目大小原因,所有都写在admin里
+	 */
 	public function cate()
 	{
 	    $this->load->model('Cate_model');
-	    
 	    $data['cate_list'] = $this->Cate_model->get_cate_list();
-	    var_dump($data['cate_list']);die;
-	    $this->load->view('admin/cate.html');
+	    $this->load->view('admin/cate.html', $data);
+	}
+	
+	public function cate_update()
+	{
+	    
 	}
 	
 	public function charts()

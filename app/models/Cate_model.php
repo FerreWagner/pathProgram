@@ -34,7 +34,7 @@ class Cate_model extends CI_Model {
     
     public function get_cate_list()
     {
-        $query = $this->db->get('cate');
+        $query = $this->db->order_by('sort')->get('cate');
         return $query->result();
     }
 

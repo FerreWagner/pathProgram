@@ -32,9 +32,13 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/index.html');
 	}
 	
-	public function elements()
+	public function cate()
 	{
-	    $this->load->view('admin/elements.html');
+	    $this->load->model('Cate_model');
+	    
+	    $data['cate_list'] = $this->Cate_model->get_cate_list();
+	    var_dump($data['cate_list']);die;
+	    $this->load->view('admin/cate.html');
 	}
 	
 	public function charts()

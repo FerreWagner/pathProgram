@@ -13,6 +13,9 @@ class Cate extends CI_Controller
         $this->load->model('Cate_model');
     }
     
+    /**
+     * cate add
+     */
     public function cate_add()
     {
         $redirect = 'http://'.base_url('admin/admin/cate');    //cate错误跳转页
@@ -22,9 +25,9 @@ class Cate extends CI_Controller
             if (!$result){
                 die('添加失败,请返回');
             }
-             
-            redirect($redirect);
         }
+        redirect($redirect);
+        
     }
     
     /**
@@ -46,13 +49,27 @@ class Cate extends CI_Controller
 	    
 	    $input_id = $this->uri->segment(5, 0);
 	    //数据验证
-	    if ($input_id == 0) redirect($redirect);;
+	    if ($input_id == 0) redirect($redirect);
 	    
 	    //get data
 	    $data['cate_edit'] = $this->Cate_model->cate_edit($input_id);
 	    $data['cate_edit'] = $data['cate_edit'][0];
 	    
 	    $this->load->view('admin/cate_edit.html', $data);
+	}
+	
+	public function cate_delete()
+	{
+	    $redirect = 'http://'.base_url('admin/admin/cate');    //cate错误跳转页
+	    	  
+	    $input_id = $this->uri->segment(5, 0);
+	    //数据验证
+	    if ($input_id == 0) redirect($redirect);
+	    //model delete
+	    $result = $this->Cate_model->cate_deletes($input_id);
+	    if (!$redirect) die('数据删除失败');
+	    
+	    redirect($redirect);
 	}
 	
 }

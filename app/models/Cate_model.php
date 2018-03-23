@@ -44,6 +44,9 @@ class Cate_model extends CI_Model {
         return $this->db->update('cate', $update_data, ['id' => $this->input->post('id')]);
     }
     
+    /**
+     * cate数据添加
+     */
     public function cate_adds()
     {
         $add_data = [
@@ -53,6 +56,15 @@ class Cate_model extends CI_Model {
         ];
         
         return $this->db->insert('cate', $add_data);
+    }
+    
+    /**
+     * cate数据删除 TODO软删除
+     * @param unknown $id
+     */
+    public function cate_deletes($id)
+    {
+        return $this->db->delete('cate', ['id' => $id]);
     }
 
 }

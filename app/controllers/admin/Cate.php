@@ -10,7 +10,21 @@ class Cate extends CI_Controller
         $this->load->helper('url');
         
         //加载公共主题
+        $this->load->model('Cate_model');
+    }
+    
+    public function cate_add()
+    {
+        $redirect = 'http://'.base_url('admin/admin/cate');    //cate错误跳转页
         
+        if (IS_POST){
+            $result = $this->Cate_model->cate_adds();
+            if (!$result){
+                die('添加失败,请返回');
+            }
+             
+            redirect($redirect);
+        }
     }
     
     /**
@@ -18,7 +32,6 @@ class Cate extends CI_Controller
      */
 	public function cate_update()
 	{
-	    $this->load->model('Cate_model');
 	    $redirect = 'http://'.base_url('admin/admin/cate');    //cate错误跳转页
 	    
 	    if (IS_POST){

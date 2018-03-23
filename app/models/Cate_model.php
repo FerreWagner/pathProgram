@@ -36,12 +36,23 @@ class Cate_model extends CI_Model {
     public function cate_updates()
     {
         $update_data = [
-            'name' => $this->input->post('name'),
-            'sort' => $this->input->post('sort'),
-            'desc' => $this->input->post('desc'),
+            'title' => $this->input->post('title'),
+            'sort'  => $this->input->post('sort'),
+            'desc'  => $this->input->post('desc'),
         ];
         
         return $this->db->update('cate', $update_data, ['id' => $this->input->post('id')]);
+    }
+    
+    public function cate_adds()
+    {
+        $add_data = [
+            'title' => $this->input->post('title'),
+            'sort'  => $this->input->post('sort'),
+            'desc'  => $this->input->post('desc'),
+        ];
+        
+        return $this->db->insert('cate', $add_data);
     }
 
 }

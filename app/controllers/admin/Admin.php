@@ -42,11 +42,6 @@ class Admin extends CI_Controller {
 	    $this->load->view('admin/cate.html', $data);
 	}
 	
-	public function cate_update()
-	{
-	    
-	}
-	
 	public function charts()
 	{
 	    $this->load->view('admin/chart.html');

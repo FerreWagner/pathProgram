@@ -29,33 +29,27 @@
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                             Advanced Tables
+                             修改栏目
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>NAME</th>
-                                            <th>SORT</th>
-                                            <th>DESC</th>
-                                            <th>SET</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    	<?php foreach($cate_list as $_k => $_v):?>
-	                                        <tr class="odd gradeX <?php if($_k%3 == 1){echo 'success';}elseif($_k%3 == 2){echo 'info';}else{echo 'warning';}?>">
-	                                            <td><?=$_v->id?></td>
-	                                            <td><?=$_v->name?></td>
-	                                            <td><?=$_v->sort?></td>
-	                                            <td class="center"><?=$_v->desc?></td>
-	                                            <td class="center"><a href="http://<?=site_url('admin/cate/cate_update');?>/id/<?=$_v->id?>" class="btn btn-info">修改</a><a style="margin-left: 10px;" class="btn btn-danger">删除</a></td>
-	                                        </tr>
-                                    	<?php endforeach;?>
-
-                                    </tbody>
-                                </table>
+                                <form role="form" action="http://<?=site_url('admin/cate/cate_update')?>" method="post">
+                                
+                                    <div class="form-group has-success">
+                                        <label class="control-label" for="inputSuccess">NAME</label>
+                                        <input type="text" class="form-control" id="inputSuccess" name="name" value="<?=$cate_edit['name']?>">
+                                    </div>
+                                    <div class="form-group has-success">
+                                        <label class="control-label" for="inputSuccess">SORT</label>
+                                        <input type="text" class="form-control" id="inputSuccess" name="sort" value="<?=$cate_edit['sort']?>">
+                                    </div>
+                                    <div class="form-group has-success">
+                                        <label class="control-label" for="inputSuccess">DESC</label>
+                                        <input type="text" class="form-control" id="inputSuccess" name="desc" value="<?=$cate_edit['desc']?>">
+                                    </div>
+                                    <input type="hidden" name="id" value="<?=$cate_edit['id']?>" />
+                                    <input type="submit" class="btn btn-info" value="提交" />
+                                </form>
                             </div>
                             
                         </div>

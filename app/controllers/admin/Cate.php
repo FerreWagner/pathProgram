@@ -13,12 +13,15 @@ class Cate extends CI_Controller
         
     }
     
+    /**
+     * cate edit view && cate update
+     */
 	public function cate_update()
 	{
 	    $this->load->model('Cate_model');
 	    $redirect = 'http://'.base_url('admin/admin/cate');    //cate错误跳转页
 	    
-	    if (strtolower($_SERVER["REQUEST_METHOD"]) == 'post'){
+	    if (IS_POST){
 	        
 	        $result = $this->Cate_model->cate_updates();
 	        if (!$result){

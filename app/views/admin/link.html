@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+	<?php $this->load->view('admin/public_css.html');?>
+
+</head>
+<body>
+    <div id="wrapper">
+    
+   	<?php $this->load->view('admin/public_top.html');?>
+	<?php $this->load->view('admin/public_side.html');?>
+		
+        <div id="page-wrapper" >
+            <div id="page-inner">
+			 <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                            Category <small>链接分类</small>
+                        </h1>
+                    </div>
+                </div> 
+                 <!-- /. ROW  -->
+               
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                             Advanced Tables
+                        </div>
+                        <div style="margin-top: 20px;margin-bottom:15px;">
+                        	<a href="http://<?=site_url('admin/link/link_add');?>" class="btn btn-success" style="margin-left: 15px;">添加</a>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>标题</th>
+                                            <th>URL</th>
+                                            <th>所属分类</th>
+                                            <th>排序</th>
+                                            <th>描述</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    	<?php foreach($link_list as $_k => $_v):?>
+	                                        <tr class="odd gradeX <?php if($_k%3 == 1){echo 'success';}elseif($_k%3 == 2){echo 'info';}else{echo 'warning';}?>">
+	                                            <td><?=$_v->id?></td>
+	                                            <td><?=$_v->title?></td>
+	                                            <td><a href="<?=$_v->url?>" target="_blank"><?=$_v->url?></a></td>
+	                                            <td><?=$_v->cate_title?></td>
+	                                            <td><?=$_v->sort?></td>
+	                                            <td class="center"><?=$_v->desc?></td>
+	                                            <td class="center"><a href="http://<?=site_url('admin/cate/cate_update');?>/id/<?=$_v->id?>" class="btn btn-info">修改</a><a style="margin-left: 10px;" onclick="return confirm('确定删除该栏目？')" href="http://<?=site_url('admin/cate/cate_delete');?>/id/<?=$_v->id?>" class="btn btn-danger">删除</a></td>
+	                                        </tr>
+                                    	<?php endforeach;?>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!--End Advanced Tables -->
+                </div>
+            </div>
+                <!-- /. ROW  -->
+        </div>
+               <footer><p>Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p></footer>
+    </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+     <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+   	<?php $this->load->view('admin/public_js.html');?>
+
+     <!-- DATA TABLE SCRIPTS -->
+    <script src="http://<?php echo base_url()?>/static/assets/js/dataTables/jquery.dataTables.js"></script>
+    <script src="http://<?php echo base_url()?>/static/assets/js/dataTables/dataTables.bootstrap.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#dataTables-example').dataTable();
+            });
+    </script>
+
+    
+   
+</body>
+</html>

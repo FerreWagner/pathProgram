@@ -76,10 +76,10 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => 'postgres',
-	'password' => 'wh1234',
-	'database' => 'ci_path',
-	'dbdriver' => 'postgre',
+	'username' => 'root',  //postgres
+	'password' => '',  //wh1234
+	'database' => 'ci_path',   //ci_path
+	'dbdriver' => 'mysqli', //postgre
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
@@ -93,5 +93,5 @@ $db['default'] = array(
 	'stricton' => FALSE,
 	'failover' => array(),
 	'save_queries' => TRUE,
-    'port'     => 5432,
+//     'port'     => 5432, 
 );

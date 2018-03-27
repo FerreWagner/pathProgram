@@ -25,8 +25,8 @@ class Cate extends CI_Controller
             if (!$result){
                 die('添加失败,请返回');
             }
+            redirect($redirect);
         }
-        redirect($redirect);
         
     }
     

@@ -58,7 +58,7 @@ class Link_model extends CI_Model {
             'sort'  => $this->input->post('sort'),
             'pid'   => $this->input->post('pid'),
             'desc'  => $this->input->post('desc'),
-            'time'  => time(),
+//             'time'  => time(),
         ];
         
         return $this->db->insert('link', $add_data);
@@ -71,6 +71,15 @@ class Link_model extends CI_Model {
     public function link_deletes($id)
     {
         return $this->db->delete('link', ['id' => $id]);
+    }
+    
+    /**
+     * 栏目list
+     */
+    public function cate_list()
+    {
+        $query = $this->db->select('id, title')->get('cate');
+        return $query->result();
     }
 
 }

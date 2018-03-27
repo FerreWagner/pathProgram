@@ -14,9 +14,20 @@ class Link extends CI_Controller
     }
     
     /**
-     * link add
+     * link add页
      */
     public function link_add()
+    {
+        //cate数据
+        $data['cate_list'] = $this->Link_model->cate_list();
+        //非post请求显示添加页
+        $this->load->view('admin/link_add.html', $data);
+    }
+    
+    /**
+     * link 增逻辑
+     */
+    public function link_add_data()
     {
         $redirect = 'http://'.base_url('admin/admin/link');    //link错误跳转页
         
@@ -25,10 +36,11 @@ class Link extends CI_Controller
             if (!$result){
                 die('添加失败,请返回');
             }
+            redirect($redirect);
         }
-        redirect($redirect);
-        
     }
+    
+    
     
     /**
      * link edit view && link update
@@ -38,7 +50,6 @@ class Link extends CI_Controller
 	    $redirect = 'http://'.base_url('admin/admin/link');    //link错误跳转页
 	    
 	    if (IS_POST){
-	        
 	        $result = $this->Link_model->link_updates();
 	        if (!$result){
 	            die('修改失败,请返回');

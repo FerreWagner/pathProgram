@@ -29,25 +29,36 @@
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                             修改栏目
+                             添加链接
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <form role="form" action="http://<?=site_url('admin/link/link_update')?>" method="post">
+                                <form role="form" action="http://<?=site_url('admin/link/link_add_data')?>" method="post">
                                 
                                     <div class="form-group has-success">
                                         <label class="control-label" for="inputSuccess">名称</label>
-                                        <input type="text" class="form-control" id="inputSuccess" name="title" value="<?=$link_edit['title']?>">
+                                        <input type="text" style="width:30%" class="form-control" id="inputSuccess" name="title" value="">
                                     </div>
                                     <div class="form-group has-success">
-                                        <label class="control-label" for="inputSuccess">SORT</label>
-                                        <input type="text" class="form-control" id="inputSuccess" name="sort" value="<?=$link_edit['sort']?>">
+                                        <label class="control-label" for="inputSuccess">链接</label>
+                                        <input type="text" style="width:30%" class="form-control" id="inputSuccess" name="url" value="">
                                     </div>
                                     <div class="form-group has-success">
-                                        <label class="control-label" for="inputSuccess">DESC</label>
-                                        <input type="text" class="form-control" id="inputSuccess" name="desc" value="<?=$link_edit['desc']?>">
+                                        <label class="control-label" for="inputSuccess">排序</label>
+                                        <input type="text" style="width:30%" class="form-control" id="inputSuccess" name="sort" value="">
                                     </div>
-                                    <input type="hidden" name="id" value="<?=$link_edit['id']?>" />
+                                    <div class="form-group">
+	                                    <label>链接分类</label>
+	                                    <select class="form-control" style="width:30%" name="pid">
+	                                    	<?php foreach($cate_list as $_k => $_v):?>
+	                                    		<option value="<?=$_v->id?>"><?=$_v->title?></option>
+	                                    	<?php endforeach;?>
+	                                    </select>
+                                    </div>
+                                    <div class="form-group">
+	                                    <label>链接详情</label>
+	                                    <textarea class="form-control" rows="5" name="desc"></textarea>
+                                    </div>
                                     <input type="submit" class="btn btn-info" value="提交" />
                                 </form>
                             </div>

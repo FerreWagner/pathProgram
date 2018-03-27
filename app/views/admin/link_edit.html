@@ -34,7 +34,7 @@
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <form role="form" action="http://<?=site_url('admin/link/link_update')?>" method="post">
-                                
+                                <input name="id" type="hidden" value="<?=$link_edit['id']?>" />
                                     <div class="form-group has-success">
                                         <label class="control-label" for="inputSuccess">名称</label>
                                         <input type="text" style="width:30%" class="form-control" id="inputSuccess" name="title" value="<?=$link_edit['title']?>">

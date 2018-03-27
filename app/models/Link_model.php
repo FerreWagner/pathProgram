@@ -54,7 +54,7 @@ class Link_model extends CI_Model {
     {
         $add_data = [
             'title' => $this->input->post('title'),
-            'url'   => $this->input->post('url'),
+            'url'   => prep_url($this->input->post('url')), //prep_url预处理加上http头
             'sort'  => $this->input->post('sort'),
             'pid'   => $this->input->post('pid'),
             'desc'  => $this->input->post('desc'),

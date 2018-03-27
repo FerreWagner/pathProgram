@@ -33,6 +33,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
+                            <?php echo validation_errors(); ?>
                                 <form role="form" action="http://<?=site_url('admin/link/link_add_data')?>" method="post">
                                 
                                     <div class="form-group has-success">

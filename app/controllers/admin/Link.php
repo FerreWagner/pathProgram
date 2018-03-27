@@ -83,6 +83,8 @@ class Link extends CI_Controller
 	    
 	    //get data
 	    $data['link_edit'] = $this->Link_model->link_edit($input_id);
+	    //cate数据
+	    $data['cate_list'] = $this->Link_model->cate_list();
 	    $data['link_edit'] = $data['link_edit'][0];
 	    
 	    $this->load->view('admin/link_edit.html', $data);

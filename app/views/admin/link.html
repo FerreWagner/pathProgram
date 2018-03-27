@@ -18,7 +18,7 @@
 			 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Category <small>链接分类</small>
+                            Link <small>链接详情</small>
                         </h1>
                     </div>
                 </div> 
@@ -57,7 +57,7 @@
 	                                            <td><?=$_v->cate_title?></td>
 	                                            <td><?=$_v->sort?></td>
 	                                            <td class="center"><?=$_v->desc?></td>
-	                                            <td class="center"><a href="http://<?=site_url('admin/cate/cate_update');?>/id/<?=$_v->id?>" class="btn btn-info">修改</a><a style="margin-left: 10px;" onclick="return confirm('确定删除该栏目？')" href="http://<?=site_url('admin/cate/cate_delete');?>/id/<?=$_v->id?>" class="btn btn-danger">删除</a></td>
+	                                            <td class="center"><a href="http://<?=site_url('admin/link/link_update');?>/id/<?=$_v->id?>" class="btn btn-info">修改</a><a style="margin-left: 10px;" onclick="return confirm('确定删除该栏目？')" href="http://<?=site_url('admin/link/link_delete');?>/id/<?=$_v->id?>" class="btn btn-danger">删除</a></td>
 	                                        </tr>
                                     	<?php endforeach;?>
 

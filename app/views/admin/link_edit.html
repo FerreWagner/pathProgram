@@ -18,7 +18,7 @@
 			 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Category <small>修改分类</small>
+                            Link <small>修改链接</small>
                         </h1>
                     </div>
                 </div> 
@@ -29,25 +29,36 @@
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                             修改栏目
+                             添加链接
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <form role="form" action="http://<?=site_url('admin/cate/cate_update')?>" method="post">
+                                <form role="form" action="http://<?=site_url('admin/link/link_update')?>" method="post">
                                 
                                     <div class="form-group has-success">
                                         <label class="control-label" for="inputSuccess">名称</label>
-                                        <input type="text" class="form-control" id="inputSuccess" name="title" value="<?=$cate_edit['title']?>">
+                                        <input type="text" style="width:30%" class="form-control" id="inputSuccess" name="title" value="<?=$link_edit['title']?>">
+                                    </div>
+                                    <div class="form-group has-success">
+                                        <label class="control-label" for="inputSuccess">链接</label>
+                                        <input type="text" style="width:30%" class="form-control" id="inputSuccess" name="url" value="<?=$link_edit['url']?>">
                                     </div>
                                     <div class="form-group has-success">
                                         <label class="control-label" for="inputSuccess">排序</label>
-                                        <input type="text" class="form-control" id="inputSuccess" name="sort" value="<?=$cate_edit['sort']?>">
+                                        <input type="text" style="width:30%" class="form-control" id="inputSuccess" name="sort" value="<?=$link_edit['sort']?>">
                                     </div>
-                                    <div class="form-group has-success">
-                                        <label class="control-label" for="inputSuccess">描述</label>
-                                        <input type="text" class="form-control" id="inputSuccess" name="desc" value="<?=$cate_edit['desc']?>">
+                                    <div class="form-group">
+	                                    <label>链接分类</label>
+	                                    <select class="form-control" style="width:30%" name="pid">
+	                                    	<?php foreach($cate_list as $_k => $_v):?>
+	                                    		<option <?php if($link_edit['pid'] == $_v->id){echo "selected";}?> value="<?=$_v->id?>"><?=$_v->title?></option>
+	                                    	<?php endforeach;?>
+	                                    </select>
                                     </div>
-                                    <input type="hidden" name="id" value="<?=$cate_edit['id']?>" />
+                                    <div class="form-group">
+	                                    <label>链接详情</label>
+	                                    <textarea class="form-control" rows="5" name="desc"><?=$link_edit['desc']?></textarea>
+                                    </div>
                                     <input type="submit" class="btn btn-info" value="提交" />
                                 </form>
                             </div>

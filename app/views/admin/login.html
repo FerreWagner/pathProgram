@@ -26,7 +26,7 @@
 		<h1>Login Form</h1>
 		 <div class="alert-close"> </div> 			
 	</div>
-		<form>
+		<form method="post" action="http://<?=site_url('admin/link/link_add_data')?>">
 			<li>
 				<input type="text" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}"><a href="#" class=" icon user"></a>
 			</li>
@@ -50,6 +50,7 @@
 <div class="footer">
 	<p>Copyright &copy; 2014.</p>
 </div>
-<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+<div style="display:none">
+</div>
 </body>
 </html>

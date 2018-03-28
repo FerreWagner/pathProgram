@@ -35,13 +35,20 @@ class User_model extends CI_Model {
      */
     public function user_updates()
     {
+        $password = sha1($this->input->post('password'));
+        //密码为空则为原密码
+        if (empty($this->input->post('password'))){
+            $defa_data = $this->db->get_where('admin', ['id' => $this->input->post('id')]);
+            $defa_data = $defa_data->result();
+            $password  = $defa_data[0]->password;
+        }
+        
         $update_data = [
-            'title' => $this->input->post('title'),
-            'sort'  => $this->input->post('sort'),
-            'desc'  => $this->input->post('desc'),
+            'username' => $this->input->post('username'),
+            'password' => sha1($this->input->post('password')),
         ];
         
-        return $this->db->update('user', $update_data, ['id' => $this->input->post('id')]);
+        return $this->db->update('admin', $update_data, ['id' => $this->input->post('id')]);
     }
     
     /**

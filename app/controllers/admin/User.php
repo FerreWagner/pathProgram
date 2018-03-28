@@ -46,4 +46,32 @@ class User extends CI_Controller
 	
 	}
 	
+	/**
+	 * user edit view && user update
+	 */
+	public function user_update()
+	{
+	    $redirect = 'http://'.base_url('admin/user/admin');    //user错误跳转页
+	    
+	    if (IS_POST){
+	         
+	        $result = $this->User_model->user_updates();
+	        if (!$result){
+	            die('修改失败,请返回');
+	        }
+	         
+	        redirect($redirect);
+	    }
+	     
+	    //数据验证
+	    $input_id = $this->uri->segment(5, 0);
+	    if ($input_id == 0) redirect($redirect);
+	     
+	    //get data
+	    $data['user_edit'] = $this->User_model->user_edit($input_id);
+	    $data['user_edit'] = $data['user_edit'][0];
+	     
+	    $this->load->view('admin/user_edit.html', $data);
+	}
+	
 }

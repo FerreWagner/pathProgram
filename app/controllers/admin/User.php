@@ -74,4 +74,18 @@ class User extends CI_Controller
 	    $this->load->view('admin/user_edit.html', $data);
 	}
 	
+	public function user_delete()
+	{
+	    $redirect = 'http://'.base_url('admin/user/admin');    //user错误跳转页
+	
+	    $input_id = $this->uri->segment(5, 0);
+	    //数据验证
+	    if ($input_id == 0) redirect($redirect);
+	    //model delete
+	    $result = $this->User_model->user_deletes($input_id);
+	    if (!$redirect) die('数据删除失败');
+	     
+	    redirect($redirect);
+	}
+	
 }

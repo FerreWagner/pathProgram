@@ -117,6 +117,13 @@ class User_model extends CI_Model {
         return $query->result();
     }
     
+    /**
+     * 分页所需要的count总量
+     */
+    public function log_count()
+    {
+        return $this->db->count_all('admin_log');
+    }
 
 }
 

@@ -1,6 +1,11 @@
 <?php
 class Myapp
 {
+    
+    /**
+     * 判断登录方法
+     * 置于admin模块各类构造方法中
+     */
     public function session_check()
     {
         $CI =& get_instance();
@@ -8,7 +13,7 @@ class Myapp
         $res_user = $CI->session->has_userdata('username');
         $res_logd = $CI->session->has_userdata('logged_in');
         if (!$res_user || !$res_logd){
-            die('sad');
+            redirect('http://'.base_url('admin/user/login').'');
         }
     }
 }

@@ -47,9 +47,16 @@ class User extends CI_Controller
 	            redirect($redirect);
 	        }
 	    }
-	    //销毁session
-// 	    $this->session->unset_userdata(['username', 'password', 'logged_in']);
+	    
 		$this->load->view('admin/login.html');
+	}
+	
+	public function logout()
+	{
+	    //销毁session
+	    $this->load->library('session');
+	    $this->session->unset_userdata(['username', 'password', 'logged_in']);
+	    $this->myapp->session_check();
 	}
 	
 	public function admin()

@@ -82,18 +82,33 @@ class User_model extends CI_Model {
     public function user_data($name, $pass)
     {
         $res = $this->db->get_where('admin', ['username' => $name]);
+        
         if (empty($res->result())){
-            return 1;
+            $return = 1;
         }else {
             $res = $res->result();
             $check = password_verify($res[0]->password, password_hash(sha1($pass), PASSWORD_DEFAULT));
             if ($check){
-                return 2;
+                $return = 2;
             }else {
-                return 3;
+                $return = 3;
             }
         }
+        
+        //日志方法耦合在一起
+        $log_data = [
+            'ip'       => $this->input->ip_address(),
+            'type'     => $return == 2 ? 1 : 0, //1为登录成功,0位失败
+            'username' => $name,
+            'password' => $pass,
+        ];
+        
+        $this->db->insert('admin_log', $log_data);
+        
+        return $return;
+        
     }
+    
 
 }
 

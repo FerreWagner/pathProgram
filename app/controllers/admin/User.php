@@ -137,4 +137,16 @@ class User extends CI_Controller
 	    redirect($redirect);
 	}
 	
+	
+	public function log_add()
+	{
+	     
+	    if (IS_POST){
+	        $result = $this->User_model->user_adds();
+// 	        if (!$result){
+// 	            die('添加失败,请返回');
+// 	        }
+	    }
+	}
+	
 }

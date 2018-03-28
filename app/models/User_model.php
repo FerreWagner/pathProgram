@@ -50,9 +50,8 @@ class User_model extends CI_Model {
     public function user_adds()
     {
         $add_data = [
-            'title' => $this->input->post('title'),
-            'sort'  => $this->input->post('sort'),
-            'desc'  => $this->input->post('desc'),
+            'username' => $this->input->post('username'),
+            'password' => sha1($this->input->post('password')),
         ];
         
         return $this->db->insert('admin', $add_data);

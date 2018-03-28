@@ -106,7 +106,15 @@ class User_model extends CI_Model {
         $this->db->insert('admin_log', $log_data);
         
         return $return;
-        
+    }
+    
+    /**
+     * 管理员日志
+     */
+    public function get_log_list()
+    {
+        $query = $this->db->get('admin_log');
+        return $query->result();
     }
     
 

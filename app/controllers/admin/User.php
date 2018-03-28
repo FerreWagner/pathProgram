@@ -138,15 +138,14 @@ class User extends CI_Controller
 	}
 	
 	
-	public function log_add()
+	/*
+	 * 管理员日志
+	 */
+	public function log_list()
 	{
-	     
-	    if (IS_POST){
-	        $result = $this->User_model->user_adds();
-// 	        if (!$result){
-// 	            die('添加失败,请返回');
-// 	        }
-	    }
+	    $this->load->model('User_model');
+	    $data['log_list'] = $this->User_model->get_log_list();
+	    $this->load->view('admin/log.html', $data);
 	}
 	
 }

@@ -72,6 +72,28 @@ class User_model extends CI_Model {
     {
         return $this->db->delete('admin', ['id' => $id]);
     }
+    
+    /**
+     * 检查登录,password_hash加密
+     * @param unknown $name
+     * @param unknown $pass
+     * @return number
+     */
+    public function user_data($name, $pass)
+    {
+        $res = $this->db->get_where('admin', ['username' => $name]);
+        if (empty($res->result())){
+            return 1;
+        }else {
+            $res = $res->result();
+            $check = password_verify($res[0]->password, password_hash(sha1($pass), PASSWORD_DEFAULT));
+            if ($check){
+                return 2;
+            }else {
+                return 3;
+            }
+        }
+    }
 
 }
 

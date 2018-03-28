@@ -11,6 +11,9 @@ class Link extends CI_Controller
         
         //加载公共主题
         $this->load->model('Link_model');
+        //加载登录检验类库
+        $this->load->library('myapp');
+        $this->myapp->session_check();
     }
     
     /**

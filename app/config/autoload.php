@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array();
+$autoload['helper'] = array();  //为了加载session登录逻辑方法,原值为空
 
 /*
 | -------------------------------------------------------------------

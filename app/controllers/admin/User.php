@@ -11,6 +11,8 @@ class User extends CI_Controller
         
         //加载公共主题
         $this->load->model('User_model');
+        //加载登录检验类库
+        $this->load->library('myapp');
         
     }
     
@@ -19,11 +21,42 @@ class User extends CI_Controller
      */
 	public function login()
 	{
+	    $redirect = 'http://'.base_url('admin/user/login');    //user错误跳转页
+	    
+	    //验证登录逻辑
+	    if (IS_POST){
+	        
+	        $input_data = $this->input->post();
+	        $res = $this->User_model->user_data($input_data['username'], $input_data['password']);
+	        
+	        //1用户名错误;2用户名密码正确;3密码错误
+	        if ($res == 1 || $res == 3){
+	            redirect($redirect);
+	        }else {
+	            $user_session   = array(
+	                'username'  => $input_data['username'],
+	                'password'  => $input_data['password'],
+	                'logged_in' => TRUE
+	            );
+	            
+	            //写入session
+	            $this->load->library('session');
+	            $this->session->set_userdata($user_session);
+	            
+	            $redirect = 'http://'.base_url('admin/admin/index');
+	            redirect($redirect);
+	        }
+	    }
+	    //销毁session
+// 	    $this->session->unset_userdata(['username', 'password', 'logged_in']);
 		$this->load->view('admin/login.html');
 	}
 	
 	public function admin()
 	{
+	    //加载登录检验类库
+	    $this->myapp->session_check();
+	    
 	    $this->load->model('User_model');
 	    $data['user_list'] = $this->User_model->get_user_list();
 	    $this->load->view('admin/user.html', $data);
@@ -34,6 +67,9 @@ class User extends CI_Controller
 	 */
 	public function user_add()
 	{
+	    //加载登录检验类库
+	    $this->myapp->session_check();
+	    
 	    $redirect = 'http://'.base_url('admin/user/admin');    //user错误跳转页
 	
 	    if (IS_POST){
@@ -51,6 +87,9 @@ class User extends CI_Controller
 	 */
 	public function user_update()
 	{
+	    //加载登录检验类库
+	    $this->myapp->session_check();
+	    
 	    $redirect = 'http://'.base_url('admin/user/admin');    //user错误跳转页
 	    
 	    if (IS_POST){
@@ -76,6 +115,9 @@ class User extends CI_Controller
 	
 	public function user_delete()
 	{
+	    //加载登录检验类库
+	    $this->myapp->session_check();
+	    
 	    $redirect = 'http://'.base_url('admin/user/admin');    //user错误跳转页
 	
 	    $input_id = $this->uri->segment(5, 0);

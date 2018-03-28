@@ -24,7 +24,9 @@ class Admin extends CI_Controller {
         $this->load->helper('url');
         
         //加载公共主题
-        
+        //加载登录检验类库
+        $this->load->library('myapp');
+        $this->myapp->session_check();
     }
     
 	public function index()

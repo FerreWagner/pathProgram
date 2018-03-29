@@ -19,14 +19,14 @@ class Home extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
     
-//     public function __construct()
-//     {
-//         parent::__construct();
-//         $this->load->helper('url');
-    
-//         //加载公共主题
-    
-//     }
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->helper('url');
+        
+        //加载公共主题
+        
+    }
     
 	public function index()
 	{

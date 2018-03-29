@@ -47,7 +47,19 @@ class Admin extends CI_Controller {
 	public function link()
 	{
 	    $this->load->model('Link_model');
-	    $data['link_list'] = $this->Link_model->get_link_list();
+	    //分页设置
+	    $this->load->library('pagination');
+	    
+	    $config['base_url']   = 'http://'.base_url('admin/admin/link').'/page/';
+	    $config['total_rows'] = $this->Link_model->link_count();
+	    $config['per_page']   = 2;
+	    
+	    $this->pagination->initialize($config);                    //加载配置信息
+	    $data = array('page'=>$this->pagination->create_links());  //要显示到界面的分页信息
+	    
+	    $page_id = $this->uri->segment(5, 1);  //默认页码为1
+	    
+	    $data['link_list'] = $this->Link_model->get_link_list($config['per_page']*($page_id - 1), $config['per_page']);
 	    $this->load->view('admin/link.html', $data);
 	}
 	

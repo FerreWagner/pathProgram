@@ -14,12 +14,12 @@ class Link_model extends CI_Model {
     /**
      * link列表显示数据
      */
-    public function get_link_list()
+    public function get_link_list($curr_num, $add_row)
     {
 //         $sql = "select link.*, cate.title as cate_title from link left join cate on link.pid = cate.id order by link.sort desc";
 //         $query = $this->db->query($sql);
         //原生和查询构造器两种方式均可
-        $query = $this->db->select('link.*, cate.title as cate_title')->from('link')->join('cate', 'link.pid = cate.id')->order_by('sort', 'desc')->get();
+        $query = $this->db->select('link.*, cate.title as cate_title')->from('link')->join('cate', 'link.pid = cate.id')->order_by('sort', 'desc')->limit($add_row, $curr_num)->get();
         return $query->result();
     }
     
@@ -82,6 +82,14 @@ class Link_model extends CI_Model {
     {
         $query = $this->db->select('id, title')->get('cate');
         return $query->result();
+    }
+    
+    /**
+     * 分页所需要的count总量
+     */
+    public function link_count()
+    {
+        return $this->db->count_all('link');
     }
 
 }

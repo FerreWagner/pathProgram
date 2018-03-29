@@ -153,7 +153,6 @@ class User extends CI_Controller
 	    $this->pagination->initialize($config);                    //加载配置信息
 	    $data = array('page'=>$this->pagination->create_links());  //要显示到界面的分页信息
 	    
-	    
 	    $page_id = $this->uri->segment(5, 1);  //默认页码为1
 	    
 	    

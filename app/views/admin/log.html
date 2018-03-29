@@ -5,7 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
 	<?php $this->load->view('admin/public_css.html');?>
+<style type="text/css">
+#mypage{
+	text-align: center;
+}
+#mypage strong{
+	margin-left: 10px;
+	padding: 8px 20px 8px 20px;
+	background: #b7de9a;
+	color: #fff;
+	border-radius:5px;
+}
+#mypage a{
+	margin-left: 10px;
+	padding: 8px 20px 8px 20px;
+	background: #449d44;
+	color: #fff;
+	border-radius:5px;
+}
+#mypage a:hover{
+	background: #398439;
+	text-decoration: none;
+}
 
+</style>
 </head>
 <body>
     <div id="wrapper">
@@ -59,7 +82,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <?php echo $page; //输出分页信息 ?>  
+                            <div id="mypage"><?php echo $page; //输出分页信息 ?></div>
                         </div>
                     </div>
                     <!--End Advanced Tables -->

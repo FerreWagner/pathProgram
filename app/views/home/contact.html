@@ -45,7 +45,7 @@
 							<?php foreach($cate_data as $_v):?>
 								<li><a href="http://<?=site_url('home/home/index');?>/<?=$_v->id?>" style="border-radius: 12px;background-color: #7a7ec5"><?=$_v->title?></a></li>
 							<?php endforeach;?>
-							<li><a href="http://<?=site_url('home/home/contact');?>" style="border-radius: 12px;background-color: #7a7ec5">联系</a></li>
+							<li><a href="" class="templatemo_page4 active" style="color: white;border-radius: 12px;background-color: #7a7ec5">联系</a></li>
 						</ul>
 					</div> <!-- /.col-md-12 -->
 				</div> <!-- /.row -->
@@ -64,29 +64,6 @@
 	</div> <!-- /.site-header -->
 	
 	<div id="menu-container">
-
-	<div class="content homepage" id="menu-1">
-			<div class="container">
-					<div class="row">
-						<?php foreach($links as $link):?>
-							<div class="col-md-3 col-sm-6" style="height:140px;margin-bottom: 20px;overflow: hidden;">
-							<?php 
-								$color = '';
-	    						$num = ['a', 'b', 'c', 'd', 'e', 'f'];
-	    						for ($i = 0; $i < 6; $i ++){
-	        						$color .= $num[array_rand($num, 1)];
-	    						}
-							?>
-								<div class="product-item" style="height:140px;background: #<?=$color?>;">
-									<!-- <img src="http://<?php echo base_url()?>/static/home/images/products/product2.jpg" alt="product 2"> -->
-									<a href="<?=$link->url?>" target="_blank" class="product-title" style="color: #5c5c5c;"><?=$link->title?></a>
-									<p><?=$link->desc?></p>
-								</div> <!-- /.product-item -->
-							</div> <!-- /.col-md-4 -->
-                        <?php endforeach;?>
-					</div> <!-- /.row -->
-			</div> <!-- /.slide-item -->
-		</div> <!-- /.products -->
 
 
 		<div class="copyrights">Collect from <a href="http://sc.chinaz.com/" >Website Template</a></div>

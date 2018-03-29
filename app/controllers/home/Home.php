@@ -25,13 +25,14 @@ class Home extends CI_Controller {
         $this->load->helper('url');
         
         //加载公共主题
+        $this->load->model('Home_model');
         
     }
     
 	public function index()
 	{
 	    
-	    $this->load->model('Home_model');
+	    
 	    $input_id = $this->uri->segment(4, 1);
 	    
 	    $data['cate_data'] = $this->Home_model->get_cate();
@@ -39,6 +40,12 @@ class Home extends CI_Controller {
 // 	    $data['color']     = $this->rand_color();
 
 		$this->load->view('home/index.html', $data);
+	}
+	
+	public function contact()
+	{
+	    $data['cate_data'] = $this->Home_model->get_cate();
+	    $this->load->view('home/contact.html', $data);
 	}
 	
 	/**

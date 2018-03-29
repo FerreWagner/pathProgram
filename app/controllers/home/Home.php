@@ -30,6 +30,28 @@ class Home extends CI_Controller {
     
 	public function index()
 	{
-		$this->load->view('home/index.html');
+	    
+	    $this->load->model('Home_model');
+	    $input_id = $this->uri->segment(4, 1);
+	    
+	    $data['cate_data'] = $this->Home_model->get_cate();
+	    $data['links']     = $this->Home_model->get_link($input_id);
+// 	    $data['color']     = $this->rand_color();
+
+		$this->load->view('home/index.html', $data);
 	}
+	
+	/**
+	 * 生成随机浅色系颜色
+	 */
+// 	public function rand_color()
+// 	{
+// 	    $color = '';
+// 	    $num = ['9', 'a', 'b', 'c', 'd', 'e', 'f'];
+// 	    for ($i = 0; $i < 6; $i ++){
+// 	        $color .= $num[array_rand($num, 1)];
+// 	    }
+// 	    return $color;
+// 	}
+	
 }

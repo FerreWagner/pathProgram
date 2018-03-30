@@ -26,10 +26,10 @@
                             用户分析 <small>用户流量</small>
                         </h1>
 						<ol class="breadcrumb">
-  <li><a href="#">Home</a></li>
-  <li><a href="#">Library</a></li>
-  <li class="active">Data</li>
-</ol>
+						  <li><a href="#">用户</a></li>
+						  <li><a href="#">来源</a></li>
+						  <li class="active">数据</li>
+						</ol>
                     </div>
                 </div>
 				
@@ -44,73 +44,58 @@
                                 
                             </div>
                             <div class="panel-right pull-right">
-								<h3>8,457</h3>
-                               <strong> Daily Visits</strong>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-blue blue">
-                              <div class="panel-left pull-left blue">
-                                <i class="fa fa-shopping-cart fa-5x"></i>
-								</div>
-                                
-                            <div class="panel-right pull-right">
-							<h3>52,160 </h3>
-                               <strong> Sales</strong>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-red red">
-                            <div class="panel-left pull-left red">
-                                <i class="fa fa fa-comments fa-5x"></i>
-                               
-                            </div>
-                            <div class="panel-right pull-right">
-							 <h3>15,823 </h3>
-                               <strong> Comments </strong>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-brown brown">
-                            <div class="panel-left pull-left brown">
-                                <i class="fa fa-users fa-5x"></i>
-                                
-                            </div>
-                            <div class="panel-right pull-right">
-							<h3>36,752 </h3>
-                             <strong>No. of Visits</strong>
-
+								<h3><?=$log_count?></h3>
+                               <strong> 用户流量</strong>
                             </div>
                         </div>
                     </div>
                 </div>
-				
-			
-				<div class="row">
-				<div class="col-md-12">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							Line Chart
-						</div>
-						<div class="panel-body">
-							<div id="morris-line-chart"></div>
-						</div>
-					</div>  
-					</div>		
-				</div> 
+                <div class="row">
+                                    <div class="col-md-8 col-sm-12 col-xs-12">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Responsive Table Example
+                            </div> 
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>国家</th>
+                                                <th>省份</th>
+                                                <th>城市</th>
+                                                <th>IP</th>
+                                                <th>时间</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        	<?php foreach($user_new as $_user):?>
+	                                            <tr>
+	                                                <td><?=$_user->country?></td>
+	                                                <td><?=$_user->province?></td>
+	                                                <td><?=$_user->city?></td>
+	                                                <td><?=$_user->ip?></td>
+	                                                <td><?=$_user->time?></td>
+	                                            </tr>
+                                            <?php endforeach;?>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
 				
 			
 		<div class="row">
 			<div class="col-xs-6 col-md-3">
 				<div class="panel panel-default">
 					<div class="panel-body easypiechart-panel">
-						<h4>Customers</h4>
-						<div class="easypiechart" id="easypiechart-blue" data-percent="82" ><span class="percent">82%</span>
+						<h4>Chrome</h4>
+						<div class="easypiechart" id="easypiechart-blue" data-percent="<?=$browser['chrome']/$log_count*100?>" ><span class="percent"><?=$browser['chrome']/$log_count*100?>%</span>
 						</div>
 					</div>
 				</div>
@@ -118,8 +103,8 @@
 			<div class="col-xs-6 col-md-3">
 				<div class="panel panel-default">
 					<div class="panel-body easypiechart-panel">
-						<h4>Sales</h4>
-						<div class="easypiechart" id="easypiechart-orange" data-percent="55" ><span class="percent">55%</span>
+						<h4>Opera</h4>
+						<div class="easypiechart" id="easypiechart-orange" data-percent="<?=$browser['opera']/$log_count*100?>" ><span class="percent"><?=$browser['opera']/$log_count*100?>%</span>
 						</div>
 					</div>
 				</div>
@@ -127,8 +112,8 @@
 			<div class="col-xs-6 col-md-3">
 				<div class="panel panel-default">
 					<div class="panel-body easypiechart-panel">
-						<h4>Profits</h4>
-						<div class="easypiechart" id="easypiechart-teal" data-percent="84" ><span class="percent">84%</span>
+						<h4>Firefox</h4>
+						<div class="easypiechart" id="easypiechart-teal" data-percent="<?=$browser['firefox']/$log_count*100?>" ><span class="percent"><?=$browser['firefox']/$log_count*100?>%</span>
 						</div>
 					</div>
 				</div>
@@ -136,55 +121,15 @@
 			<div class="col-xs-6 col-md-3">
 				<div class="panel panel-default">
 					<div class="panel-body easypiechart-panel">
-						<h4>No. of Visits</h4>
-						<div class="easypiechart" id="easypiechart-red" data-percent="46" ><span class="percent">46%</span>
+						<h4>IE & Other</h4>
+						<div class="easypiechart" id="easypiechart-red" data-percent="<?=$browser['ie']/$log_count*100?>" ><span class="percent"><?=$browser['ie']/$log_count*100?>%</span>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div><!--/.row-->
+		</div>
+		<!--/.row-->
 			
-				
-                <div class="row">
-                    <div class="col-md-9 col-sm-12 col-xs-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Bar Chart Example
-                            </div>
-                            <div class="panel-body">
-                                <div id="morris-bar-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Donut Chart Example
-                            </div>
-                            <div class="panel-body">
-                                <div id="morris-donut-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-				<div class="row">
-				<div class="col-md-12">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							Area Chart
-						</div>
-						<div class="panel-body">
-							<div id="morris-area-chart"></div>
-						</div>
-					</div>  
-					</div>		
-				</div> 	
-                <!-- /. ROW  -->
-
-	   
-				
-				
 				
                 <div class="row">
                     <div class="col-md-4 col-sm-12 col-xs-12">
@@ -227,79 +172,11 @@
                         </div>
 
                     </div>
-                    <div class="col-md-8 col-sm-12 col-xs-12">
 
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Responsive Table Example
-                            </div> 
-                            <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>S No.</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>User Name</th>
-                                                <th>Email ID.</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>John</td>
-                                                <td>Doe</td>
-                                                <td>John15482</td>
-                                                <td>name@site.com</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Kimsila</td>
-                                                <td>Marriye</td>
-                                                <td>Kim1425</td>
-                                                <td>name@site.com</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Rossye</td>
-                                                <td>Nermal</td>
-                                                <td>Rossy1245</td>
-                                                <td>name@site.com</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Richard</td>
-                                                <td>Orieal</td>
-                                                <td>Rich5685</td>
-                                                <td>name@site.com</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Jacob</td>
-                                                <td>Hielsar</td>
-                                                <td>Jac4587</td>
-                                                <td>name@site.com</td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Wrapel</td>
-                                                <td>Dere</td>
-                                                <td>Wrap4585</td>
-                                                <td>name@site.com</td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
                 <!-- /. ROW  -->
-				<footer><p>Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p></footer>
+				
             </div>
+            <footer style="text-align: center;"><p>Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p></footer>
             <!-- /. PAGE INNER  -->
         </div>
         <!-- /. PAGE WRAPPER  -->

@@ -34,9 +34,12 @@ class Admin extends CI_Controller {
      */
 	public function index()
 	{
+	    $this->load->model('User_model');
+	    $data['log_count'] = $this->User_model->user_log_count();
+	    $data['browser']   = $this->User_model->user_type();
+	    $data['user_new']  = $this->User_model->user_new();
 	    
-	    
-		$this->load->view('admin/index.html');
+		$this->load->view('admin/index.html', $data);
 	}
 	
 	/**

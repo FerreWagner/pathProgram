@@ -127,12 +127,33 @@ class User_model extends CI_Model {
         return $this->db->count_all('admin_log');
     }
     
+//-------------------------以下为前台用户数据处理,因项目大小统一在User_model中-----------------------------------------------------
+    
     /**
      * 用户流量数据
+     * @return NULL[]
      */
-    public function user_log()
+    public function user_type()
     {
-        $this->db->get('tourist');
+        $data = [];
+        $data['chrome']  = $this->db->or_where('type', 'chrome')->or_where('type', '360se')->get('tourist');
+        $data['opera']   = $this->db->or_where('type', 'opera')->or_where('type', 'safari')->get('tourist');
+        $data['firefox'] = $this->db->where('type', 'firefox')->get('tourist');
+        $data['ie']      = $this->user_log_count() - count($data['chrome']->result()) - count($data['opera']->result()) - count($data['firefox']->result());
+        
+        $data['chrome']  = count($data['chrome']->result());
+        $data['opera']   = count($data['opera']->result());
+        $data['firefox'] = count($data['firefox']->result());
+        return $data;
+    }
+    
+    /**
+     * 过去10条数据
+     */
+    public function user_new()
+    {
+        $query = $this->db->limit(10)->order_by('id', 'desc')->get('tourist');
+        return $query->result();
     }
     
     /**
@@ -140,7 +161,7 @@ class User_model extends CI_Model {
      */
     public function user_log_count()
     {
-        
+        return $this->db->count_all('tourist');
     }
 
 }

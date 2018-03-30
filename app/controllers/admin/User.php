@@ -21,6 +21,8 @@ class User extends CI_Controller
      */
 	public function login()
 	{
+	    //加载已登录检验方法
+	    $this->myapp->login_aleardy();
 	    $redirect = 'http://'.base_url('admin/user/login');    //user错误跳转页
 	    
 	    //验证登录逻辑

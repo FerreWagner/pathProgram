@@ -6,4 +6,4 @@ CI用法参考：
 
 [百度经验](https://jingyan.baidu.com/article/20095761ddd27ecb0721b42a.html "百度经验")
 
-https://my.oschina.net/rain21/blog/505771
+[开源中国](https://my.oschina.net/rain21/blog/505771 "开源中国")

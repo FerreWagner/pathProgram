@@ -29,8 +29,13 @@ class Admin extends CI_Controller {
         $this->myapp->session_check();
     }
     
+    /**
+     * 游客用户数据
+     */
 	public function index()
 	{
+	    
+	    
 		$this->load->view('admin/index.html');
 	}
 	

@@ -126,6 +126,22 @@ class User_model extends CI_Model {
     {
         return $this->db->count_all('admin_log');
     }
+    
+    /**
+     * 用户流量数据
+     */
+    public function user_log()
+    {
+        $this->db->get('tourist');
+    }
+    
+    /**
+     * 用户流量聚合
+     */
+    public function user_log_count()
+    {
+        
+    }
 
 }
 

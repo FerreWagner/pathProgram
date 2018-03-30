@@ -26,12 +26,12 @@ class Home extends CI_Controller {
         
         //加载公共主题
         $this->load->model('Home_model');
-        
+        //用户流量处理
+        $this->Home_model->tourist_add();
     }
     
 	public function index()
 	{
-	    
 	    
 	    $input_id = $this->uri->segment(4, 1);
 	    

@@ -24,11 +24,15 @@ class Website extends CI_Controller {
         $this->load->helper('url');
     
         //加载公共主题
-    
+        $this->load->model('Home_model');
     }
     
 	public function index()
 	{
-		$this->load->view('admin/index.html');
+	    $input_id = $this->uri->segment(4, 1);
+	     
+	    $data['cate_data'] = $this->Home_model->get_cate();
+	    $data['links']     = $this->Home_model->get_link($input_id);
+		$this->load->view('home/index.html', $data);
 	}
 }

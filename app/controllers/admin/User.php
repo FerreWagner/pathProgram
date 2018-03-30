@@ -148,7 +148,7 @@ class User extends CI_Controller
 	    
 	    $config['base_url']   = 'http://'.base_url('admin/user/log_list').'/page/';
 	    $config['total_rows'] = $this->User_model->log_count();
-	    $config['per_page']   = 2;
+	    $config['per_page']   = 10;
 	    
 	    $this->pagination->initialize($config);                    //加载配置信息
 	    $data = array('page'=>$this->pagination->create_links());  //要显示到界面的分页信息

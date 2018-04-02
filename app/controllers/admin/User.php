@@ -153,13 +153,12 @@ class User extends CI_Controller
 	    $config['per_page']   = 10;
 	    
 	    $this->pagination->initialize($config);                    //加载配置信息
-	    $data = array('page'=>$this->pagination->create_links());  //要显示到界面的分页信息
 	    
 	    $page_id = $this->uri->segment(5, 1);  //默认页码为1
 	    
 	    
 	    $this->load->model('User_model');
-	    $data['log_list'] = $this->User_model->get_log_list($config['per_page']*($page_id - 1), $config['per_page']);
+	    $data['log_list'] = $this->User_model->get_log_list($page_id, $config['per_page']);
 	    $this->load->view('admin/log.html', $data);
 	}
 	

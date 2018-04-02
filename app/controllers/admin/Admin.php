@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Admin extends CI_Controller {
-
 	/**
 	 * Index Page for this controller.
 	 *
@@ -63,36 +61,13 @@ class Admin extends CI_Controller {
 	    $config['per_page']   = 10;
 	    
 	    $this->pagination->initialize($config);                    //加载配置信息
-	    $data = array('page'=>$this->pagination->create_links());  //要显示到界面的分页信息
+// 	    $data = array('page'=>$this->pagination->create_links());  //要显示到界面的分页信息
 	    
 	    $page_id = $this->uri->segment(5, 1);  //默认页码为1
 	    
-	    $data['link_list'] = $this->Link_model->get_link_list($config['per_page']*($page_id - 1), $config['per_page']);
+	    $data['link_list'] = $this->Link_model->get_link_list($page_id, $config['per_page']);
+// 	    var_dump($this->db->last_query());die;
 	    $this->load->view('admin/link.html', $data);
 	}
 	
-	public function charts()
-	{
-	    $this->load->view('admin/chart.html');
-	}
-	
-	public function tabs()
-	{
-	    $this->load->view('admin/tabs.html');
-	}
-	
-	public function table()
-	{
-	    $this->load->view('admin/table.html');
-	}
-	
-	public function form()
-	{
-	    $this->load->view('admin/form.html');
-	}
-	
-	public function empti()
-	{
-	    $this->load->view('admin/empti.html');
-	}
 }

@@ -114,7 +114,11 @@ class User_model extends CI_Model {
     public function get_log_list($curr_num, $add_row)
     {
         //$this->db->last_query() 打印执行的最后一条sql
-        $query = $this->db->limit($add_row, $curr_num)->get('admin_log');
+        if ($curr_num == 1){
+            $query = $this->db->limit($add_row)->get('admin_log');
+        }else {
+            $query = $this->db->limit($add_row, $curr_num)->get('admin_log');
+        }
         //TODO TIPS:CI中的limit与原生sql的limit相反
         return $query->result();
     }

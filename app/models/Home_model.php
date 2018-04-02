@@ -25,7 +25,7 @@ class Home_model extends CI_Model {
      */
     public function get_link($cate_id)
     {
-        $query = $this->db->select('title, url, desc')->get_where('link', ['pid' => $cate_id]);
+        $query = $this->db->select('title, url, desc')->order_by('sort', 'desc')->get_where('link', ['pid' => $cate_id]);
         return $query->result();
     }
     

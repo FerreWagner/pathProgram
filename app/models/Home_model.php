@@ -44,7 +44,7 @@ class Home_model extends CI_Model {
         $arr_data  = json_decode($area, true);
         $error     = json_last_error();
         
-        if ((time() - strtotime($res_data[0]->time)) > 30){
+        if ((time() - @strtotime($res_data[0]->time)) > 30){
             //json是否存在错误
             if (!empty($error)) {
                 $see = [

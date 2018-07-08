@@ -34,6 +34,7 @@ class Home_model extends CI_Model {
      */
     public function tourist_add()
     {
+		return true;
         date_default_timezone_set("Asia/Shanghai"); //时区设置
         
         $res = $this->db->select('time')->limit(1)->order_by('id', 'desc')->get_where('tourist', ['ip' => $this->input->ip_address()]);

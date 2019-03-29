@@ -6,7 +6,7 @@
 ----------
 
 
->CI用法参考：
+CI用法参考：
 
 >[CI官方文档](http://codeigniter.org.cn/user_guide/index.html "CI用户文档") 
 

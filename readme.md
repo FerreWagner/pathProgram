@@ -1,6 +1,7 @@
-# pathProgram-A simple background management system based on me #
-
-一个基于CI3的简单后台管理系统
+# pathProgram #
+	A simple background management system based on me
+	
+	一个基于CI3的简单后台管理系统
 
 ----------
 
